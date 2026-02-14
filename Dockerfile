@@ -4,8 +4,11 @@ FROM nginx:alpine
 # Copy all files from the current directory to nginx
 COPY . /usr/share/nginx/html/
 
-# Expose port 80
-EXPOSE 80
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Expose port 8080
+EXPOSE 8080
 
 # Start nginx
 CMD ["nginx", "-g", "daemon off;"]
